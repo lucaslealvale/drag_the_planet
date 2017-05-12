@@ -6,6 +6,11 @@ pygame.mixer.init()
 
 screen=pygame.display.set_mode((1200,720),0,32) #inicia a tela
 
+img_names = ["arma_sprite0.png","arma_sprite1.png","arma_sprite2.png","arma_sprite3.png","arma_sprite4.png","arma_sprite5.png","arma_sprite6.png"]
+all_imgs = {}
+
+
+
 
 logo1=pygame.image.load('logo_maior.jpg') #tamanho: 960x540
 
@@ -25,7 +30,9 @@ label_2_NEW=myfont.render("Load Game",1,(173,255,47))
 
 label_3_NEW=myfont.render("Quit Game",1,(173,255,47))
 
-RICK_GUN=pygame.image.load('arma_rick.png')
+RICK_GUN=0
+for img in img_names:
+    RICK_GUN= pygame.image.load(img)
 
 x=label_1_NEW
 y=label_2
@@ -57,6 +64,7 @@ while True:
 	for event in events:
 		if event.type==pygame.KEYDOWN:
 			if event.key==K_ESCAPE:
+				pygame.mixer.music.fadeout(2)
 				sys.exit()
 			elif y==label_2_NEW and event.key==K_DOWN:
 				x=label_1
