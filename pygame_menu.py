@@ -35,8 +35,7 @@ x_RICK=[350,305]
 
 pygame.mixer.music.load('tema.mp3')#Música
 pygame.mixer.music.play(10)
-while pygame.mixer.music.get_busy(): 
-    pygame.time.Clock().tick(10)
+
 
 while True:
 	
