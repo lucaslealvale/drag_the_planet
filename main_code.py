@@ -34,10 +34,19 @@ def simula(vx,vy,caixa,lugar):
         tela.blit(fundo,(0,0))
         tela.blit(play,(1200,720))
         caixa.move(vx,vy)
+
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key==K_SPACE:
+                    caixa.x=50
+                    caixa.y=615
+                    return
+                    
+                
+            
         
         #gravidade e atrito
         if caixa.y>=615:
-            print(caixa.y)
             caixa.y=615
             tela.blit(caixa_i,(caixa.x,caixa.y))
             pygame.display.update()
@@ -62,8 +71,18 @@ def simula(vx,vy,caixa,lugar):
 while playing: 
     tela.blit(fundo,(0,0))
     tela.blit(play,(30,50))
+    #mostra gravidade
+    myfont = pygame.font.SysFont("monospace", 30)
+
+    # render text
+    label = myfont.render("Gravidade: {0}".format(lugar.g), 1, (0,0,0))
+    tela.blit(label, (200, 100))
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
+            if event.key==K_UP:
+                lugar.g=lugar.g+10
+            if event.key==K_DOWN:
+                lugar.g=lugar.g-10
             if event.key==K_SPACE:
 
                 simula(vx,vy,caixa,lugar)
