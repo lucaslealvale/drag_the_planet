@@ -27,15 +27,21 @@ label_2_NEW=myfont.render("Options",1,(173,255,47))
 label_3_NEW=myfont.render("Quit Game",1,(173,255,47))
 
 
-x=label_1_NEW
-y=label_2
-z=label_3
+xp=label_1_NEW
+yp=label_2
+zp=label_3
 
-marker=1 #marca a opção que estiver selecionada no menu
+markerp=1 #marca a opção que estiver selecionada no menu
 
 x_RICK=[350,305]
 
-pygame.mixer.music.load('tema.mp3')#Música
+soundtrack_1="tema.mp3"
+soundtrack_2="musica1.mp3"
+soundtrack_3="musica2.mp3"
+soundtrack_4="musica4.mp3"
+soundtrack_5="musica5.mp3"
+
+pygame.mixer.music.load(soundtrack_1) #Música
 pygame.mixer.music.play(10)
 
 d=0
@@ -51,11 +57,11 @@ while True:
 
 	screen.blit(logo_name, [110,-100]) #a logo_name é posicionada nas coordenadas 50,50
 
-	screen.blit(x, [420,300])
+	screen.blit(xp, [420,300])
 
-	screen.blit(y, [410,400])
+	screen.blit(yp, [410,400])
 
-	screen.blit(z, [410,500])
+	screen.blit(zp, [410,500])
 	
 	screen.blit(pygame.image.load(img_names[d]), x_RICK)
 
@@ -65,48 +71,47 @@ while True:
 			if event.key==K_ESCAPE:
 				pygame.mixer.music.fadeout(2)
 				sys.exit()
-			elif x==label_1_NEW and event.key==K_DOWN:
-				x=label_1
-				y=label_2_NEW
-				z=label_3
-				marker=2
+			elif xp==label_1_NEW and event.key==K_DOWN:
+				xp=label_1
+				yp=label_2_NEW
+				zp=label_3
+				markerp=2
 				x_RICK=[340,405]
-			elif x==label_1_NEW and event.key==K_UP:
-				x=label_1
-				y=label_2
-				z=label_3_NEW
-				marker=3
+			elif xp==label_1_NEW and event.key==K_UP:
+				xp=label_1
+				yp=label_2
+				zp=label_3_NEW
+				markerp=3
 				x_RICK=[340,505]
-			elif y==label_2_NEW and event.key==K_DOWN:
-				x=label_1
-				y=label_2
-				z=label_3_NEW
-				marker=3
+			elif yp==label_2_NEW and event.key==K_DOWN:
+				xp=label_1
+				yp=label_2
+				zp=label_3_NEW
+				markerp=3
 				x_RICK=[340,505]
-			elif y==label_2_NEW and event.key==K_UP:
-				x=label_1_NEW
-				y=label_2
-				z=label_3
-				marker=1
+			elif yp==label_2_NEW and event.key==K_UP:
+				xp=label_1_NEW
+				yp=label_2
+				zp=label_3
+				markerp=1
 				x_RICK=[350,305]
-			elif z==label_3_NEW and event.key==K_DOWN:
-				x=label_1_NEW
-				y=label_2
-				z=label_3
-				marker=1
+			elif zp==label_3_NEW and event.key==K_DOWN:
+				xp=label_1_NEW
+				yp=label_2
+				zp=label_3
+				markerp=1
 				x_RICK=[350,305]
-			elif z==label_3_NEW and event.key==K_UP:
-				x=label_1
-				y=label_2_NEW
-				z=label_3
-				marker=2
+			elif zp==label_3_NEW and event.key==K_UP:
+				xp=label_1
+				yp=label_2_NEW
+				zp=label_3
+				markerp=2
 				x_RICK=[340,405]
-			elif marker==1 and event.key==pygame.K_RETURN:
+			elif markerp==1 and event.key==pygame.K_RETURN:
 				import main_code
-			elif marker==2 and event.key==pygame.K_RETURN:
+			elif markerp==2 and event.key==pygame.K_RETURN:
 				import options
-			elif marker==3 and event.key==pygame.K_RETURN:
+			elif markerp==3 and event.key==pygame.K_RETURN:
 				pygame.mixer.music.fadeout(2)
 				sys.exit()
-	d=d+1
 	pygame.display.update()
