@@ -33,6 +33,7 @@ zp=label_3
 
 markerp=1 #marca a opção que estiver selecionada no menu
 
+d=0
 x_RICK=[350,305]
 
 soundtrack_1="tema.mp3"
@@ -44,7 +45,6 @@ soundtrack_5="musica5.mp3"
 pygame.mixer.music.load(soundtrack_1) #Música
 pygame.mixer.music.play(10)
 
-d=0
 
 while True:
 	
@@ -114,4 +114,5 @@ while True:
 			elif markerp==3 and event.key==pygame.K_RETURN:
 				pygame.mixer.music.fadeout(2)
 				sys.exit()
+	d=d+1
 	pygame.display.update()
