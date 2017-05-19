@@ -37,14 +37,28 @@ lugar=lugar(120)
 playing = True
 
 def simula(vx,vy,caixa,lugar):
+    aa=0
+    cont=0
     while True:
+        print(aa)
+        print()
+        print(cont)
+        print(portais[cont])
+        if aa==5:
+            if cont==5:
+                cont=-1
+            cont=cont+1
+        aa=aa+1
+        if aa==6:
+            aa=0
+        portal=pygame.image.load(portais[cont]).convert_alpha()
+        portal=pygame.transform.scale(portal,(200,200))
+    
+        tela.blit(portal,(1000,520))
         tela.blit(fundo,(0,0))
         tela.blit(play,(1200,720))
         caixa.move(vx,vy)
-        aa=0
         
-        
-
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key==K_SPACE:
