@@ -11,6 +11,8 @@ clock = pygame.time.Clock()
 vx=30
 vy=-30
 a=0
+cont=0
+aa=0
 class caixa:
     def __init__(self,x,y):
         self.x=x
@@ -25,16 +27,23 @@ class lugar:
 fundo = pygame.image.load("fundo.jpg").convert()
 caixa_i = pygame.image.load("caixa.png").convert_alpha()
 play = pygame.image.load("play.png").convert_alpha()
+morty = pygame.image.load("morty.png").convert_alpha()
+morty=pygame.transform.scale(morty, (87,240))
 play=pygame.transform.scale(play, (100,100))
+portais=["portal_sprite0.png","portal_sprite1.png","portal_sprite2.png","portal_sprite3.png","portal_sprite4.png","portal_sprite5.png"]
 caixa_i=pygame.transform.scale(caixa_i, (100,105))
 caixa=caixa(50,615)
 lugar=lugar(120)
 playing = True
+
 def simula(vx,vy,caixa,lugar):
     while True:
         tela.blit(fundo,(0,0))
         tela.blit(play,(1200,720))
         caixa.move(vx,vy)
+        aa=0
+        
+        
 
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
@@ -73,7 +82,17 @@ while playing:
     tela.blit(fundo,(0,0))
     tela.blit(play,(30,50))
     #mostra gravidade
+    if aa==5:
+        if cont==5:
+            cont=-1
+        cont=cont+1
+    aa=aa+1
+    if aa==6:
+        aa=0
+    portal=pygame.image.load(portais[cont]).convert_alpha()
+    portal=pygame.transform.scale(portal,(200,200))
     
+    tela.blit(portal,(1000,520))
     myfont = pygame.font.SysFont("monospace", 30)
     pygame.draw.line(fundo,(0,0,0),(100,670),(1200,670),2)
     pygame.draw.line(fundo,(0,0,0),(100,670),(100,0),2)
