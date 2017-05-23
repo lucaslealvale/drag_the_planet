@@ -1,7 +1,7 @@
 import pygame
 import sys
 from pygame.locals import *
-import random
+import random, time
 
 pygame.init()
 tela = pygame.display.set_mode((1200,720))
@@ -48,6 +48,7 @@ lugar=lugar(150)
 playing = True
 myfont = pygame.font.SysFont("monospace", 30)
 myfont2 = pygame.font.SysFont("monospace", 60)
+label_win=pygame.image.load("ganhou.png")
 obs1i=pygame.image.load(obs1.sprite).convert_alpha()
 
 
@@ -63,8 +64,7 @@ def simula(vx,vy,caixa,lugar):
         #print (r)
         if r<=150:
             #codigo se ganhou
-            label_win = myfont2.render("Você ganhou!", 1, (0,0,0))
-            tela.blit(label_win,(400,360))
+            tela.blit(label_win,(320,250))
             
         
         
@@ -72,6 +72,7 @@ def simula(vx,vy,caixa,lugar):
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key==K_SPACE:
+                    time.clock()
                     caixa.x=50
                     caixa.y=615
                     return
@@ -90,6 +91,8 @@ def simula(vx,vy,caixa,lugar):
             break
         else:
             vy=vy+(lugar.g/60)
+            print(time.clock())
+     
         tela.blit(caixa_i,(caixa.x,caixa.y))
         portal=pygame.image.load(portais[cont]).convert_alpha()
         portal=pygame.transform.scale(portal,(200,200))
@@ -163,6 +166,8 @@ while playing:
             if event.key==K_SPACE:
 
                 simula(vx,vy,caixa,lugar)
+            if event.key==K_ESCAPE:
+            	sys.exit()
         if event.type == pygame.QUIT:
             playing=False
             pygame.quit()
