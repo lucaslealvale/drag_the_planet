@@ -1,7 +1,7 @@
 import pygame
 import sys
 from pygame.locals import *
-import random
+import random, time
 import math
 
 pygame.init()
@@ -25,7 +25,16 @@ class caixa:
         self.y=self.y+dy
 class lugar:
     def __init__(self,gravidade):
-        self.g=gravidade       
+        self.g=gravidade
+class portal:
+    def __init__(self,x,y):
+        self.x=x
+        self.y=y
+class obs:
+    def __init__(self,x,y,sprite):
+        self.x=x
+        self.y=y
+        self.sprite=sprite
 
 fundo = pygame.image.load("fundo.jpg").convert()
 caixa_i = pygame.image.load("caixa.png").convert_alpha()
@@ -33,12 +42,18 @@ play = pygame.image.load("play.png").convert_alpha()
 morty = pygame.image.load("morty.png").convert_alpha()
 morty=pygame.transform.scale(morty, (87,240))
 play=pygame.transform.scale(play, (100,100))
+obs1=obs(600,620,"caixa2.png")
 portais=["portal_sprite0.png","portal_sprite1.png","portal_sprite2.png","portal_sprite3.png","portal_sprite4.png","portal_sprite5.png"]
 caixa_i=pygame.transform.scale(caixa_i, (100,105))
 caixa=caixa(50,615)
-#100 670
-lugar=lugar(120)
+portal1=portal(1100,620)
+lugar=lugar(150)
 playing = True
+myfont = pygame.font.SysFont("monospace", 30)
+myfont2 = pygame.font.SysFont("monospace", 60)
+label_win=pygame.image.load("ganhou.png")
+obs1i=pygame.image.load(obs1.sprite).convert_alpha()
+
 
 def simula(vx,vy,caixa,lugar):
     aa=0
@@ -62,10 +77,21 @@ def simula(vx,vy,caixa,lugar):
         tela.blit(fundo,(0,0))
         tela.blit(play,(1200,720))
         caixa.move(vx,vy)
+        aa=0
+
+        #calcula distancia entre caixa e portal
+        r=((portal1.x - caixa.x)**2+(portal1.y - caixa.y)**2)**0.5
+        #print (r)
+        if r<=150:
+            #codigo se ganhou
+            tela.blit(label_win,(320,250))
+            
+        
         
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key==K_SPACE:
+                    time.clock()
                     caixa.x=50
                     caixa.y=615
                     return
@@ -84,7 +110,13 @@ def simula(vx,vy,caixa,lugar):
             break
         else:
             vy=vy+(lugar.g/60)
+            print(time.clock())
+     
         tela.blit(caixa_i,(caixa.x,caixa.y))
+        portal=pygame.image.load(portais[cont]).convert_alpha()
+        portal=pygame.transform.scale(portal,(200,200))
+    
+        tela.blit(portal,(1000,520))
         pygame.display.update()
         clock.tick(60)
     while True:
@@ -96,7 +128,9 @@ def simula(vx,vy,caixa,lugar):
                     return
 
 
-while playing: 
+while playing:
+    print(obs1.x)
+    tela.blit(obs1i,(obs1.x,obs1.y))
     tela.blit(fundo,(0,0))
     tela.blit(play,(30,50))
     #mostra gravidade
@@ -111,7 +145,6 @@ while playing:
     portal=pygame.transform.scale(portal,(200,200))
     
     tela.blit(portal,(1000,520))
-    myfont = pygame.font.SysFont("monospace", 30)
     pygame.draw.line(fundo,(0,0,0),(100,670),(1200,670),2)
     pygame.draw.line(fundo,(0,0,0),(100,670),(100,0),2)
     if a==1:
@@ -137,7 +170,7 @@ while playing:
         fundo = pygame.image.load("fundo.jpg").convert()
         a=0
     # render text
-    label = myfont.render("Gravidade: {0}".format(lugar.g), 1, (0,0,0))
+    label = myfont.render("Gravidade: {0}".format(lugar.g/100), 1, (0,0,0))
     label1 = myfont.render("1m".format(lugar.g), 1, (0,0,0))
     tela.blit(label, (200, 100))
     #desenha vetor
@@ -156,12 +189,15 @@ while playing:
                 vx=v*math.cos(a)
                 vy=-v*math.sin(a)
                 simula(vx,vy,caixa,lugar)
+
             if event.key==K_RIGHT:
                 b=b+0.05
                 a=math.pi*b
             if event.key==K_LEFT:
                 b=b-0.05
                 a=math.pi*b
+            if event.key==K_ESCAPE:
+            	sys.exit()
         if event.type == pygame.QUIT:
             playing=False
             pygame.quit()
