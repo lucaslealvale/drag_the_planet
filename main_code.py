@@ -2,17 +2,20 @@ import pygame
 import sys
 from pygame.locals import *
 import random
+import math
 
 pygame.init()
 tela = pygame.display.set_mode((1200,720))
 pygame.display.set_caption('Physics, Morty')
 clock = pygame.time.Clock()
 #Tomamos 100 pixeis como 1m
-vx=30
-vy=-30
-a=0
+v=42
+b=0.25
+a=b*math.pi
+print(a)
 cont=0
 aa=0
+
 class caixa:
     def __init__(self,x,y):
         self.x=x
@@ -33,6 +36,7 @@ play=pygame.transform.scale(play, (100,100))
 portais=["portal_sprite0.png","portal_sprite1.png","portal_sprite2.png","portal_sprite3.png","portal_sprite4.png","portal_sprite5.png"]
 caixa_i=pygame.transform.scale(caixa_i, (100,105))
 caixa=caixa(50,615)
+#100 670
 lugar=lugar(120)
 playing = True
 
@@ -136,7 +140,10 @@ while playing:
     label = myfont.render("Gravidade: {0}".format(lugar.g), 1, (0,0,0))
     label1 = myfont.render("1m".format(lugar.g), 1, (0,0,0))
     tela.blit(label, (200, 100))
+    #desenha vetor
+    pygame.draw.line(fundo,(255,0,0),(100,670),(100+v*5*math.cos(a),670-v*5*math.sin(a)),2)
     #label = myfont.render("Gravidade: {0}".format(lugar.g), 1, (0,0,0))
+    
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key==K_g:
@@ -146,8 +153,15 @@ while playing:
             if event.key==K_DOWN:
                 lugar.g=lugar.g-10
             if event.key==K_SPACE:
-
+                vx=v*math.cos(a)
+                vy=-v*math.sin(a)
                 simula(vx,vy,caixa,lugar)
+            if event.key==K_RIGHT:
+                b=b+0.05
+                a=math.pi*b
+            if event.key==K_LEFT:
+                b=b-0.05
+                a=math.pi*b
         if event.type == pygame.QUIT:
             playing=False
             pygame.quit()
