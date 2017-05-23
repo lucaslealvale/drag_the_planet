@@ -91,6 +91,10 @@ def simula(vx,vy,caixa,lugar):
         else:
             vy=vy+(lugar.g/60)
         tela.blit(caixa_i,(caixa.x,caixa.y))
+        portal=pygame.image.load(portais[cont]).convert_alpha()
+        portal=pygame.transform.scale(portal,(200,200))
+    
+        tela.blit(portal,(1000,520))
         pygame.display.update()
         clock.tick(60)
     while True:
