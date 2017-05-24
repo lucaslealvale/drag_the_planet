@@ -11,8 +11,8 @@ clock = pygame.time.Clock()
 #Tomamos 100 pixeis como 1m
 v=42
 b=0.25
-a=b*math.pi
-print(a)
+ang=b*math.pi
+a=0
 cont=0
 aa=0
 
@@ -129,9 +129,10 @@ def simula(vx,vy,caixa,lugar):
 
 
 while playing:
-    print(obs1.x)
-    tela.blit(obs1i,(obs1.x,obs1.y))
+    
     tela.blit(fundo,(0,0))
+    pygame.draw.line(fundo,(255,0,0),(100,670),(100+v*5*math.cos(ang),670-v*5*math.sin(ang)),2)
+    #tela.blit(obs1i,(obs1.x,obs1.y))
     tela.blit(play,(30,50))
     #mostra gravidade
     if aa==5:
@@ -174,7 +175,7 @@ while playing:
     label1 = myfont.render("1m".format(lugar.g), 1, (0,0,0))
     tela.blit(label, (200, 100))
     #desenha vetor
-    pygame.draw.line(fundo,(255,0,0),(100,670),(100+v*5*math.cos(a),670-v*5*math.sin(a)),2)
+    
     #label = myfont.render("Gravidade: {0}".format(lugar.g), 1, (0,0,0))
     
     for event in pygame.event.get():
@@ -186,16 +187,19 @@ while playing:
             if event.key==K_DOWN:
                 lugar.g=lugar.g-10
             if event.key==K_SPACE:
-                vx=v*math.cos(a)
-                vy=-v*math.sin(a)
+                vx=v*math.cos(ang)
+                vy=-v*math.sin(ang)
                 simula(vx,vy,caixa,lugar)
 
             if event.key==K_RIGHT:
+                fundo = pygame.image.load("fundo.jpg").convert()
                 b=b+0.05
-                a=math.pi*b
+                ang=math.pi*b
             if event.key==K_LEFT:
+                fundo = pygame.image.load("fundo.jpg").convert()
                 b=b-0.05
-                a=math.pi*b
+                ang=math.pi*b
+                tela.blit(fundo,(0,0))
             if event.key==K_ESCAPE:
             	sys.exit()
         if event.type == pygame.QUIT:
