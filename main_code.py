@@ -31,18 +31,20 @@ class portal:
         self.x=x
         self.y=y
 class obs:
-    def __init__(self,x,y,sprite):
+    def __init__(self,x,y):
         self.x=x
         self.y=y
-        self.sprite=sprite
 
 fundo = pygame.image.load("fundo.jpg").convert()
 caixa_i = pygame.image.load("caixa.png").convert_alpha()
+caixa_fixa = pygame.image.load("caixa2.png").convert_alpha()
+caixa_fixa1 = obs(500, 520)
+caixa_alo = obs(600,200)
 play = pygame.image.load("play.png").convert_alpha()
 morty = pygame.image.load("morty.png").convert_alpha()
 morty=pygame.transform.scale(morty, (87,240))
 play=pygame.transform.scale(play, (100,100))
-obs1=obs(600,620,"caixa2.png")
+#obs1=obs(600,620,"caixa2.png")
 portais=["portal_sprite0.png","portal_sprite1.png","portal_sprite2.png","portal_sprite3.png","portal_sprite4.png","portal_sprite5.png"]
 caixa_i=pygame.transform.scale(caixa_i, (100,105))
 caixa=caixa(50,615)
@@ -52,7 +54,8 @@ playing = True
 myfont = pygame.font.SysFont("monospace", 30)
 myfont2 = pygame.font.SysFont("monospace", 60)
 label_win=pygame.image.load("ganhou.png")
-obs1i=pygame.image.load(obs1.sprite).convert_alpha()
+label_lose=pygame.image.load("perdeu.png")
+#obs1i=pygame.image.load(obs1.sprite).convert_alpha()
 
 
 def simula(vx,vy,caixa,lugar):
@@ -72,22 +75,26 @@ def simula(vx,vy,caixa,lugar):
             aa=0
         portal=pygame.image.load(portais[cont]).convert_alpha()
         portal=pygame.transform.scale(portal,(200,200))
-    
+
         tela.blit(portal,(1000,520))
         tela.blit(fundo,(0,0))
         tela.blit(play,(1200,720))
         caixa.move(vx,vy)
+        tela.blit(caixa_fixa, (500,520))
         aa=0
 
         #calcula distancia entre caixa e portal
         r=((portal1.x - caixa.x)**2+(portal1.y - caixa.y)**2)**0.5
+        d=((caixa_fixa1.x - caixa.x)**2+(caixa_fixa1.y - caixa.y)**2)**0.5
         #print (r)
+        if d<= 150:
+        	tela.blit(label_lose,(320,250))
+        	#tela.blit(caixa_i, (400,500))
+        	vx=0
         if r<=150:
             #codigo se ganhou
-            tela.blit(label_win,(320,250))
-            
-        
-        
+            tela.blit(label_win,(320,250)) 
+                     
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key==K_SPACE:
@@ -129,10 +136,9 @@ def simula(vx,vy,caixa,lugar):
 
 
 while playing:
-    
     tela.blit(fundo,(0,0))
+    tela.blit(caixa_fixa, (500,520))
     pygame.draw.line(fundo,(255,0,0),(100,670),(100+v*5*math.cos(ang),670-v*5*math.sin(ang)),2)
-    #tela.blit(obs1i,(obs1.x,obs1.y))
     tela.blit(play,(30,50))
     #mostra gravidade
     if aa==5:
@@ -146,10 +152,11 @@ while playing:
     portal=pygame.transform.scale(portal,(200,200))
     
     tela.blit(portal,(1000,520))
+    
     pygame.draw.line(fundo,(0,0,0),(100,670),(1200,670),2)
     pygame.draw.line(fundo,(0,0,0),(100,670),(100,0),2)
+
     if a==1:
-        
         pygame.draw.line(fundo,(0,0,0),(200,670),(200,0),1)
         pygame.draw.line(fundo,(0,0,0),(300,670),(300,0),1)
         pygame.draw.line(fundo,(0,0,0),(400,670),(400,0),1)
