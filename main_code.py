@@ -87,14 +87,14 @@ def simula(vx,vy,caixa,lugar):
         r=((portal1.x - caixa.x)**2+(portal1.y - caixa.y)**2)**0.5
         d=((caixa_fixa1.x - caixa.x)**2+(caixa_fixa1.y - caixa.y)**2)**0.5
         #print (r)
-        if d<= 150:
+        if d<= 115:
         	tela.blit(label_lose,(320,250))
         	#tela.blit(caixa_i, (400,500))
         	vx=0
         if r<=150:
             #codigo se ganhou
             tela.blit(label_win,(320,250)) 
-                     
+            
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key==K_SPACE:
