@@ -37,14 +37,14 @@ class obs:
 
 fundo = pygame.image.load("fundo.jpg").convert()
 caixa_i = pygame.image.load("caixa.png").convert_alpha()
-caixa_fixa = pygame.image.load("caixa2.png").convert_alpha()
-caixa_fixa1 = obs(600, 620)
-caixa_alo = obs(600,200)
+#caixa_fixa = pygame.image.load("caixa2.png").convert_alpha()
+#caixa_fixa1 = obs(600, 620)
+#caixa_alo = obs(600,200)
 play = pygame.image.load("play.png").convert_alpha()
 morty = pygame.image.load("morty.png").convert_alpha()
 morty=pygame.transform.scale(morty, (87,240))
 play=pygame.transform.scale(play, (100,100))
-#obs1=obs(600,620,"caixa2.png")
+
 portais=["portal_sprite0.png","portal_sprite1.png","portal_sprite2.png","portal_sprite3.png","portal_sprite4.png","portal_sprite5.png"]
 caixa_i=pygame.transform.scale(caixa_i, (100,105))
 caixa=caixa(100,667.5)
@@ -55,7 +55,6 @@ myfont = pygame.font.SysFont("monospace", 30)
 myfont2 = pygame.font.SysFont("monospace", 60)
 label_win=pygame.image.load("ganhou.png")
 label_lose=pygame.image.load("perdeu.png")
-#obs1i=pygame.image.load(obs1.sprite).convert_alpha()
 
 
 def simula(v,caixa,lugar):
@@ -78,25 +77,26 @@ def simula(v,caixa,lugar):
         tela.blit(fundo,(0,0))
         tela.blit(play,(1200,720))
         caixa.move(vx,vy)
-        tela.blit(caixa_fixa, (500,520))
+        #tela.blit(caixa_fixa, (500,520))
         aa=0
 
         #calcula distancia entre caixa e portal
         r=((portal1.x - caixa.x)**2+(portal1.y - caixa.y)**2)**0.5
-        d=((caixa_fixa1.x - caixa.x)**2+(caixa_fixa1.y - caixa.y)**2)**0.5
+        #d=((caixa_fixa1.x - caixa.x)**2+(caixa_fixa1.y - caixa.y)**2)**0.5
         #colisao real
         
         #print (r)
         print(caixa.x,caixa.y)
-        print(caixa_fixa1.x,caixa_fixa1.y)
+        #print(caixa_fixa1.x,caixa_fixa1.y)
         print()
-        if d<= 150:
+        #if d<= 150:
         	#tela.blit(label_lose,(320,250))
         	#tela.blit(caixa_i, (400,500))
         	#vx=0
-            caixa.x=100
-            caixa.y=667.5
-            return
+        #    caixa.x=100
+        #    caixa.y=667.5
+        #    tela.blit(label_lose,(320,250))
+        #    return
         if r<=150:
             #codigo se ganhou
             tela.blit(label_win,(320,250)) 
@@ -142,7 +142,7 @@ def simula(v,caixa,lugar):
 
 while playing:
     tela.blit(fundo,(0,0))
-    tela.blit(caixa_fixa, (500,520))
+    #tela.blit(caixa_fixa, (500,520))
     pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
     tela.blit(play,(30,50))
     tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
