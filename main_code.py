@@ -203,21 +203,21 @@ while playing:
                 
                 
                 simula(v,caixa,lugar)
-            if event.key==K_a:
-                fundo = pygame.image.load("fundo.jpg").convert()
-                v=v-5
-            if event.key==K_s:
-                fundo = pygame.image.load("fundo.jpg").convert()
-                v=v+5
-            if event.key==K_RIGHT:
-                fundo = pygame.image.load("fundo.jpg").convert()
-                b=b+0.05
-                ang=math.pi*b
-            if event.key==K_LEFT:
-                fundo = pygame.image.load("fundo.jpg").convert()
-                b=b-0.05
-                ang=math.pi*b
-                tela.blit(fundo,(0,0))
+            #if event.key==K_a:
+             #   fundo = pygame.image.load("fundo.jpg").convert()
+              #  v=v-5
+            #if event.key==K_s:
+             #   fundo = pygame.image.load("fundo.jpg").convert()
+              #  v=v+5
+            #if event.key==K_RIGHT:
+             #   fundo = pygame.image.load("fundo.jpg").convert()
+              #  b=b+0.05
+               # ang=math.pi*b
+            #if event.key==K_LEFT:
+             #   fundo = pygame.image.load("fundo.jpg").convert()
+              #  b=b-0.05
+               # ang=math.pi*b
+                #tela.blit(fundo,(0,0))
             if event.key==K_ESCAPE:
             	sys.exit()
         if event.type == pygame.QUIT:
