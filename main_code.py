@@ -58,9 +58,11 @@ label_lose=pygame.image.load("perdeu.png")
 #obs1i=pygame.image.load(obs1.sprite).convert_alpha()
 
 
-def simula(vx,vy,caixa,lugar):
+def simula(v,caixa,lugar):
     aa=0
     cont=0
+    vy=-v*math.sin(ang)
+    vx=v*math.cos(ang)
     while True:
         if aa==5:
             if cont==5:
@@ -198,10 +200,15 @@ while playing:
             if event.key==K_DOWN:
                 lugar.g=lugar.g-10
             if event.key==K_SPACE:
-                vx=v*math.cos(ang)
-                vy=-v*math.sin(ang)
-                simula(vx,vy,caixa,lugar)
-
+                
+                
+                simula(v,caixa,lugar)
+            if event.key==K_a:
+                fundo = pygame.image.load("fundo.jpg").convert()
+                v=v-5
+            if event.key==K_s:
+                fundo = pygame.image.load("fundo.jpg").convert()
+                v=v+5
             if event.key==K_RIGHT:
                 fundo = pygame.image.load("fundo.jpg").convert()
                 b=b+0.05
