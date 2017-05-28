@@ -9,7 +9,7 @@ tela = pygame.display.set_mode((1200,720))
 pygame.display.set_caption('Physics, Morty')
 clock = pygame.time.Clock()
 #Tomamos 100 pixeis como 1m
-v=42
+v=43
 b=0.40
 ang=b*math.pi
 a=0
@@ -86,9 +86,9 @@ def simula(v,caixa,lugar):
         #colisao real
         
         #print (r)
-        print(caixa.x,caixa.y)
+        #print(caixa.x,caixa.y)
         #print(caixa_fixa1.x,caixa_fixa1.y)
-        print()
+        #print()
         #if d<= 150:
         	#tela.blit(label_lose,(320,250))
         	#tela.blit(caixa_i, (400,500))
