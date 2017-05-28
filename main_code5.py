@@ -86,9 +86,9 @@ def simula(v,caixa,lugar):
         #colisao real
         
         #print (r)
-        print(caixa.x,caixa.y)
+        #print(caixa.x,caixa.y)
         #print(caixa_fixa1.x,caixa_fixa1.y)
-        print()
+        #print()
         if d<= 150:
             tela.blit(label_lose,(320,250))
             tela.blit(caixa_i, (400,500))
