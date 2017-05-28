@@ -54,7 +54,7 @@ play=pygame.transform.scale(play, (100,100))
 portais=["portal_sprite0.png","portal_sprite1.png","portal_sprite2.png","portal_sprite3.png","portal_sprite4.png","portal_sprite5.png"]
 caixa_i=pygame.transform.scale(caixa_i, (100,105))
 caixa=caixa(100,667.5)
-portal1=portal(600,220)
+portal1=portal(300,220)
 lugar=lugar(150)
 playing = True
 myfont = pygame.font.SysFont("monospace", 30)
@@ -102,7 +102,7 @@ def simula(v,caixa,lugar):
         
         #print(caixa_fixa1.x,caixa_fixa1.y)
         
-        print()
+        #print()
         #if z<=100:
          #   caixa.x=100
           #  caixa.y=667.5
@@ -147,7 +147,7 @@ def simula(v,caixa,lugar):
         portal=pygame.image.load(portais[cont]).convert_alpha()
         portal=pygame.transform.scale(portal,(200,200))
     
-        tela.blit(portal,(500,120))
+        tela.blit(portal,(portal1.x-100,portal1.y-100))
         pygame.display.update()
         clock.tick(60)
     while True:
@@ -180,7 +180,7 @@ while playing:
     portal=pygame.image.load(portais[cont]).convert_alpha()
     portal=pygame.transform.scale(portal,(200,200))
     
-    tela.blit(portal,(500,120))
+    tela.blit(portal,(portal1.x-100,portal1.y-100))
     
     pygame.draw.line(fundo,(0,0,0),(100,670),(1200,670),2)
     pygame.draw.line(fundo,(0,0,0),(100,670),(100,0),2)
