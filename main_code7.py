@@ -90,12 +90,12 @@ def simula(v,caixa,lugar):
         #print(caixa_fixa1.x,caixa_fixa1.y)
         print()
         if d<= 150:
-            tela.blit(label_lose,(320,250))
-            tela.blit(caixa_i, (400,500))
-            vx=0
+            #tela.blit(label_lose,(320,250))
+            #tela.blit(caixa_i, (400,500))
+            #vx=0
             caixa.x=100
             caixa.y=667.5
-            tela.blit(label_lose,(320,250))
+            #tela.blit(label_lose,(320,250))
             return
         if r<=150:
             #codigo se ganhou

@@ -43,7 +43,7 @@ caixa_fixa1 = obs(600, 620)#1
 
 
 caixa_fixa2= pygame.image.load("caixa2.png").convert_alpha()#2
-caixa_fixa3 = obs(300, 420)#2
+caixa_fixa3 = obs(400, 520)#2
 
 
 play = pygame.image.load("play.png").convert_alpha()
@@ -101,20 +101,19 @@ def simula(v,caixa,lugar):
         #print(caixa.x,caixa.y)
         
         #print(caixa_fixa1.x,caixa_fixa1.y)
-        
-        print()
-        if z<=100:
+
+        if z<=150:
             caixa.x=100
             caixa.y=667.5
-            tela.blit(label_lose,(320,250))
+            #tela.blit(label_lose,(320,250))
             return
         if d<= 150:
-            tela.blit(label_lose,(320,250))
-            tela.blit(caixa_i, (400,500))
-            vx=0
+            #tela.blit(label_lose,(320,250))
+            #tela.blit(caixa_i, (400,500))
+            #vx=0
             caixa.x=100
             caixa.y=667.5
-            tela.blit(label_lose,(320,250))
+            #tela.blit(label_lose,(320,250))
             return
         if r<=100:
             #codigo se ganhou
