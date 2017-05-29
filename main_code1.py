@@ -3,6 +3,7 @@ import sys
 from pygame.locals import *
 import random, time
 import math
+import animation_out_world as ani
 
 
 def um():
@@ -228,6 +229,8 @@ def um():
                     
                     
                     simula(v,caixa,lugar)
+                if lugar.g<0 and event.key==K_SPACE:
+                    ani.animation1()
                 #if event.key==K_a:
                  #   fundo = pygame.image.load("fundo.jpg").convert()
                   #  v=v-5
