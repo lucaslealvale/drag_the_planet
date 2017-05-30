@@ -4,6 +4,7 @@ from pygame.locals import *
 import random, time
 import math
 import animation_out_world as ani
+import levels as lvl
 
 
 def tutorial():
@@ -58,9 +59,11 @@ def tutorial():
     myfont2 = pygame.font.SysFont("monospace", 60)
     label_win=pygame.image.load("ganhou.png")
     label_lose=pygame.image.load("perdeu.png")
+    
 
 
     def simula(v,caixa,lugar):
+        ganhou=False
         aa=0
         cont=0
         vy=-v*math.sin(ang)
@@ -102,7 +105,8 @@ def tutorial():
             #    return
             if r<=150:
                 #codigo se ganhou
-                tela.blit(label_win,(320,250)) 
+                
+                ganhou=True
                 
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -112,8 +116,14 @@ def tutorial():
                         caixa.y=667.5
                         return
                         
-                    
-                
+            if ganhou==True:
+                tela.blit(label_win,(320,250))
+            if ganhou==True and caixa.y>=667.5:
+                while True:
+                    for event in pygame.event.get():
+                        if event.type == pygame.KEYDOWN:
+                            if event.key==K_SPACE:
+                                lvl.fases()
             
             #gravidade e atrito
             if caixa.y>=667.5:
@@ -138,9 +148,13 @@ def tutorial():
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key==K_SPACE:
-                        caixa.x=100
-                        caixa.y=667.5
-                        return
+                        if ganhou==False:
+                            
+                            caixa.x=100
+                            caixa.y=667.5
+                            return
+                        elif ganhou==True:
+                            lvl.fases()
 
 
     while playing:
