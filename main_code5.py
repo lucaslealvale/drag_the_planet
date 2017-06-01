@@ -87,7 +87,6 @@ def cinco():
             tela.blit(play,(1200,720))
             caixa.move(vx,vy)
             tela.blit(caixa_fixa, (500,420))
-            aa=0
 
             #calcula distancia entre caixa e portal
             r=((portal1.x - caixa.x)**2+(portal1.y - caixa.y)**2)**0.5
