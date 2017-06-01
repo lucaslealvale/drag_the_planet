@@ -3,7 +3,8 @@ import sys
 from pygame.locals import *
 import random, time
 import math
-#import animation_out_world as ani
+import animation_out_world as ani
+import main_code10 as fase10
 
     
 def nove():
@@ -120,7 +121,8 @@ def nove():
                 return
             if r<=100:
                 #codigo se ganhou
-                tela.blit(label_win,(320,150)) 
+                tela.blit(label_win,(320,150))
+                fase10.dez()
                 
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -228,19 +230,19 @@ def nove():
                     
                     
                     simula(v,caixa,lugar)
-                #if lugar.g<0 and event.key==K_SPACE:
-                    #ani.animation9()
+                if lugar.g<0 and event.key==K_SPACE:
+                    ani.animation9()
                 if event.key==K_a:
                     fundo = pygame.image.load("fundo.jpg").convert()
                     v=v-5
                 if event.key==K_s:
                     fundo = pygame.image.load("fundo.jpg").convert()
                     v=v+5
-                if event.key==K_RIGHT:
+                if event.key==K_LEFT:
                     fundo = pygame.image.load("fundo.jpg").convert()
                     b=b+0.05
                     ang=math.pi*b
-                if event.key==K_LEFT:
+                if event.key==K_RIGHT:
                     fundo = pygame.image.load("fundo.jpg").convert()
                     b=b-0.05
                     ang=math.pi*b
@@ -258,4 +260,4 @@ def nove():
         
         pygame.display.update()
         clock.tick(60)
-nove()
+#nove()

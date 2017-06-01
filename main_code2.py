@@ -4,6 +4,7 @@ from pygame.locals import *
 import random, time
 import math
 import animation_out_world as ani
+import main_code3 as fase3
 
 def dois():
     pygame.init()
@@ -101,7 +102,8 @@ def dois():
                 return
             if r<=150:
                 #codigo se ganhou
-                tela.blit(label_win,(320,250)) 
+                tela.blit(label_win,(320,250))
+                fase3.tres()
                 
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:

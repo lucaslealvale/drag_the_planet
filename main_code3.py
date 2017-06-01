@@ -4,7 +4,7 @@ from pygame.locals import *
 import random, time
 import math
 import animation_out_world as ani
-
+import main_code4 as fase4
 
 def tres():
     pygame.init()
@@ -102,7 +102,8 @@ def tres():
             #    return
             if r<=150:
                 #codigo se ganhou
-                tela.blit(label_win,(320,250)) 
+                tela.blit(label_win,(320,250))
+                fase4.quatro()
                 
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -214,11 +215,11 @@ def tres():
                 #if event.key==K_s:
                  #   fundo = pygame.image.load("fundo.jpg").convert()
                   #  v=v+5
-                if event.key==K_RIGHT:
+                if event.key==K_LEFT:
                     fundo = pygame.image.load("fundo.jpg").convert()
                     b=b+0.05
                     ang=math.pi*b
-                if event.key==K_LEFT:
+                if event.key==K_RIGHT:
                     fundo = pygame.image.load("fundo.jpg").convert()
                     b=b-0.05
                     ang=math.pi*b

@@ -4,6 +4,7 @@ from pygame.locals import *
 import random, time
 import math
 import animation_out_world as ani
+import main_code7 as fase7
     
 def seis():
     pygame.init()
@@ -101,7 +102,8 @@ def seis():
                 return
             if r<=150:
                 #codigo se ganhou
-                tela.blit(label_win,(320,250)) 
+                tela.blit(label_win,(320,250))
+                fase7.sete()
                 
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -195,8 +197,8 @@ def seis():
         
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
-                #if event.key==K_g:
-                 #   a=(a+1)%3
+                if event.key==K_g:
+                    a=(a+1)%3
                 #if event.key==K_UP:
                  #   lugar.g=lugar.g+10
                 #if event.key==K_DOWN:

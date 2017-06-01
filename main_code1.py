@@ -4,6 +4,7 @@ from pygame.locals import *
 import random, time
 import math
 import animation_out_world as ani
+import main_code2 as fase2
 
 
 def um():
@@ -53,7 +54,7 @@ def um():
     morty = pygame.image.load("morty.png").convert_alpha()
     morty=pygame.transform.scale(morty, (87,240))
     play=pygame.transform.scale(play, (100,100))
-
+    lvl_1_img=pygame.image.load('lvl_1_img.png')
     portais=["portal_sprite0.png","portal_sprite1.png","portal_sprite2.png","portal_sprite3.png","portal_sprite4.png","portal_sprite5.png"]
     caixa_i=pygame.transform.scale(caixa_i, (100,105))
     caixa=caixa(100,667.5)
@@ -64,6 +65,7 @@ def um():
     myfont2 = pygame.font.SysFont("monospace", 60)
     label_win=pygame.image.load("ganhou.png")
     label_lose=pygame.image.load("perdeu.png")
+    gs=0
 
 
     def simula(v,caixa,lugar):
@@ -85,6 +87,7 @@ def um():
             tela.blit(portal,(portal1.x-100,portal1.y-100))
             tela.blit(fundo,(0,0))
             tela.blit(play,(1200,720))
+            tela.blit(lvl_1_img,(320,250))
             caixa.move(vx,vy)
             
             #tela.blit(caixa_fixa, (600,520))
@@ -121,7 +124,10 @@ def um():
                 #return
             if r<=100:
                 #codigo se ganhou
-                tela.blit(label_win,(320,250)) 
+                gs=1
+                tela.blit(label_win,(320,250))
+                fase2.dois()
+
                 
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -182,6 +188,7 @@ def um():
             aa=0
         portal=pygame.image.load(portais[cont]).convert_alpha()
         portal=pygame.transform.scale(portal,(200,200))
+
         
         tela.blit(portal,(portal1.x-100,portal1.y-100))
         
@@ -229,7 +236,7 @@ def um():
                     
                     
                     simula(v,caixa,lugar)
-                if lugar.g<0 and event.key==K_SPACE:
+                if lugar.g<0 and event.key==K_SPACE and gs==0:
                     ani.animation1()
                 #if event.key==K_a:
                  #   fundo = pygame.image.load("fundo.jpg").convert()

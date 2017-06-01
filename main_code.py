@@ -4,7 +4,7 @@ from pygame.locals import *
 import random, time
 import math
 import animation_out_world as ani
-import levels as lvl
+import main_code1 as fase1
 
 
 def tutorial():
@@ -58,12 +58,10 @@ def tutorial():
     myfont = pygame.font.SysFont("monospace", 30)
     myfont2 = pygame.font.SysFont("monospace", 60)
     label_win=pygame.image.load("ganhou.png")
-    label_lose=pygame.image.load("perdeu.png")
-    
+    label_errou=pygame.image.load('errou.png')
 
 
     def simula(v,caixa,lugar):
-        ganhou=False
         aa=0
         cont=0
         vy=-v*math.sin(ang)
@@ -103,10 +101,19 @@ def tutorial():
             #    caixa.y=667.5
             #    tela.blit(label_lose,(320,250))
             #    return
+            pa=False
+            pe=False
             if r<=150:
                 #codigo se ganhou
-                
-                ganhou=True
+                tela.blit(label_win,(320,250))
+                pa=True
+                time.clock
+                if pa==True:
+                    pygame.time.wait(5)
+                    pe=True
+                    if pe==True:
+                        fase1.um()
+
                 
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -116,14 +123,8 @@ def tutorial():
                         caixa.y=667.5
                         return
                         
-            if ganhou==True:
-                tela.blit(label_win,(320,250))
-            if ganhou==True and caixa.y>=667.5:
-                while True:
-                    for event in pygame.event.get():
-                        if event.type == pygame.KEYDOWN:
-                            if event.key==K_SPACE:
-                                lvl.fases()
+                    
+                
             
             #gravidade e atrito
             if caixa.y>=667.5:
@@ -148,22 +149,18 @@ def tutorial():
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key==K_SPACE:
-                        if ganhou==False:
-                            
-                            caixa.x=100
-                            caixa.y=667.5
-                            return
-                        elif ganhou==True:
-                            lvl.fases()
+                        caixa.x=100
+                        caixa.y=667.5
+                        return
 
 
     while playing:
         tela.blit(fundo,(0,0))
-        #tela.blit(caixa_fixa, (500,520))
+        #tela.blit(caixa_fixa, (500,520)) 
         pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
         tela.blit(play,(30,50))
         tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
-        #mostra gravidade
+        #mostra gravidade 
         if aa==5:
             if cont==5:
                 cont=-1

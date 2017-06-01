@@ -3,7 +3,8 @@ import sys
 from pygame.locals import *
 import random, time
 import math
-#import animation_out_world as ani
+import animation_out_world as ani
+#import pygame_menu as menuzinho
 
     
 def dez():
@@ -136,7 +137,8 @@ def dez():
 
             if r<=100:
                 #codigo se ganhou
-                tela.blit(label_win,(320,150)) 
+                tela.blit(label_win,(320,150))
+                #menuzinho.menu()
                 
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -246,19 +248,19 @@ def dez():
                     
                     
                     simula(v,caixa,lugar)
-                #if lugar.g<0 and event.key==K_SPACE:
-                    #ani.animation10()
+                if lugar.g<0 and event.key==K_SPACE:
+                    ani.animation10()
                 if event.key==K_a:
                     fundo = pygame.image.load("fundo.jpg").convert()
                     v=v-5
                 if event.key==K_s:
                     fundo = pygame.image.load("fundo.jpg").convert()
                     v=v+5
-                if event.key==K_RIGHT:
+                if event.key==K_LEFT:
                     fundo = pygame.image.load("fundo.jpg").convert()
                     b=b+0.05
                     ang=math.pi*b
-                if event.key==K_LEFT:
+                if event.key==K_RIGHT:
                     fundo = pygame.image.load("fundo.jpg").convert()
                     b=b-0.05
                     ang=math.pi*b
@@ -276,4 +278,4 @@ def dez():
         
         pygame.display.update()
         clock.tick(60)
-dez()
+#dez()

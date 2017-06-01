@@ -9,6 +9,8 @@ import main_code5 as fase_5
 import main_code6 as fase_6
 import main_code7 as fase_7
 import main_code8 as fase_8
+import main_code9 as fase_9
+import main_code10 as fase_10
 
 def fases():
 	pygame.init()
@@ -218,4 +220,18 @@ def fases():
 					screen.blit(enter,[1000,600])
 				elif f==1 and fundao==1 and xx==oito and event.key==pygame.K_RETURN:
 					fase_8.oito()
+				elif f==0 and fundao==0 and xx==nove and event.key==pygame.K_RETURN:
+					f=1
+					fundao=1
+					screen.blit(tut,[0,0])
+					screen.blit(enter,[1000,600])
+				elif f==1 and fundao==1 and xx==nove and event.key==pygame.K_RETURN:
+					fase_9.nove()
+				elif f==0 and fundao==0 and xx==dez and event.key==pygame.K_RETURN:
+					f=1
+					fundao=1
+					screen.blit(tut,[0,0])
+					screen.blit(enter,[1000,600])
+				elif f==1 and fundao==1 and xx==dez and event.key==pygame.K_RETURN:
+					fase_10.dez()
 		pygame.display.update()
