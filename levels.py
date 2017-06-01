@@ -73,6 +73,7 @@ def fases():
 			screen.blit(baixo_1,xy_baixo)
 			screen.blit(level,[100,400])
 			screen.blit(xx,xx_xy)
+			screen.blit(enter,[1000,600])
 
 
 		events=pygame.event.get()

@@ -31,6 +31,10 @@ def menu():
 
 	label_3_NEW=myfont.render("Quit Game",1,(173,255,47))
 
+	enter=pygame.image.load('enter_img.png')
+
+	enter=pygame.transform.scale(enter,(204,128)) #re-escalona a imagem do botão
+
 
 	xp=label_1_NEW
 	yp=label_2
@@ -67,6 +71,8 @@ def menu():
 		screen.blit(yp, [410,400])
 
 		screen.blit(zp, [410,500])
+
+		screen.blit(enter,[1000,600])
 	
 		screen.blit(pygame.image.load(img_names[d]), x_RICK)
 

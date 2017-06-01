@@ -56,6 +56,9 @@ def opcoes():
 	PLAYGAME_1=myfont.render("PLAY GAME",1,(205,205,205))
 	PLAYGAME_2=myfont.render("PLAY GAME",1,(173,255,47))
 
+	enter=pygame.image.load('enter_img.png')
+	enter=pygame.transform.scale(enter,(204,128))
+
 	pygame.mixer.music.load('tema.mp3') #Música
 
 	soundtrack_1="tema.mp3"
@@ -83,6 +86,8 @@ def opcoes():
 		screen.blit(w, [300,400])
 		screen.blit(z, [800,400])
 		screen.blit(play, [420, 500])
+		screen.blit(enter,[1000,600])
+
 		events=pygame.event.get()
 		for event in events:
 			if event.type==pygame.KEYDOWN:
