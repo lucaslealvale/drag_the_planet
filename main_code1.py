@@ -66,6 +66,11 @@ def um():
     label_win=pygame.image.load("ganhou.png")
     label_lose=pygame.image.load("perdeu.png")
     gs=0
+    inicio=0
+    enter=pygame.image.load('enter_img.png')
+    enter=pygame.transform.scale(enter,(204,128))
+
+    fundinho=pygame.image.load('back_fundo.png')
 
 
     def simula(v,caixa,lugar):
@@ -87,7 +92,6 @@ def um():
             tela.blit(portal,(portal1.x-100,portal1.y-100))
             tela.blit(fundo,(0,0))
             tela.blit(play,(1200,720))
-            tela.blit(lvl_1_img,(320,250))
             caixa.move(vx,vy)
             
             #tela.blit(caixa_fixa, (600,520))
@@ -169,15 +173,29 @@ def um():
 
 
     while playing:
-        tela.blit(fundo,(0,0))
+        if inicio==0:
+            tela.blit(fundo,(0,0))
         
         #tela.blit(caixa_fixa, (600,520))
-
+       
         # tela.blit(caixa_fixa2,(300,420))
+            pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
+            tela.blit(play,(30,50))
+            tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
+
+            tela.blit(fundinho,(0,0))
+
+            tela.blit(lvl_1_img,(320,200))
+            
+
+            tela.blit(enter,[1000,600])
+        elif inicio==1:
+            tela.blit(fundo,(0,0))
         
-        pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
-        tela.blit(play,(30,50))
-        tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
+            pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
+            tela.blit(play,(30,50))
+            tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
+            tela.blit(portal,(portal1.x-100,portal1.y-100))
         #mostra gravidade
         if aa==5:
             if cont==5:
@@ -190,7 +208,7 @@ def um():
         portal=pygame.transform.scale(portal,(200,200))
 
         
-        tela.blit(portal,(portal1.x-100,portal1.y-100))
+            
         
         pygame.draw.line(fundo,(0,0,0),(100,670),(1200,670),2)
         pygame.draw.line(fundo,(0,0,0),(100,670),(100,0),2)
@@ -226,6 +244,8 @@ def um():
         
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
+                if inicio==0 and event.key==pygame.K_RETURN:
+                    inicio=1
                 if event.key==K_g:
                     a=(a+1)%3
                 if event.key==K_UP:

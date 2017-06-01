@@ -34,7 +34,7 @@ def menu():
 	enter=pygame.image.load('enter_img.png')
 
 	enter=pygame.transform.scale(enter,(204,128)) #re-escalona a imagem do botão
-
+	
 
 	xp=label_1_NEW
 	yp=label_2
