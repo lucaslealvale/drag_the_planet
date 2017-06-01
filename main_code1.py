@@ -182,12 +182,8 @@ def um():
             pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
             tela.blit(play,(30,50))
             tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
-
             tela.blit(fundinho,(0,0))
-
             tela.blit(lvl_1_img,(320,200))
-            
-
             tela.blit(enter,[1000,600])
         elif inicio==1:
             tela.blit(fundo,(0,0))
@@ -286,3 +282,4 @@ def um():
         
         pygame.display.update()
         clock.tick(60)
+#um()

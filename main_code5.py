@@ -58,7 +58,7 @@ def cinco():
     myfont = pygame.font.SysFont("monospace", 30)
     myfont2 = pygame.font.SysFont("monospace", 60)
     label_win=pygame.image.load("ganhou.png")
-    label_lose=pygame.image.load("perdeu.png")
+    #label_lose=pygame.image.load("perdeu.png")
     inicio=0
     lvl_5_img=pygame.image.load('lvl_5_img.png')
     enter=pygame.image.load('enter_img.png')
@@ -99,12 +99,12 @@ def cinco():
             #print(caixa_fixa1.x,caixa_fixa1.y)
             #print()
             if d<= 150:
-                tela.blit(label_lose,(320,250))
-                tela.blit(caixa_i, (400,500))
+                #tela.blit(label_lose,(320,250))
+                #tela.blit(caixa_i, (400,500))
                 vx=0
                 caixa.x=100
                 caixa.y=667.5
-                tela.blit(label_lose,(320,250))
+                #tela.blit(label_lose,(320,250))
                 return
             if r<=150:
                 #codigo se ganhou
@@ -157,15 +157,17 @@ def cinco():
             pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
             tela.blit(play,(30,50))
             tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
+            tela.blit(fundinho,(0,0))
             tela.blit(lvl_5_img,(320,200))
             tela.blit(enter,[1000,600])
-            inicio=1
+            
         elif inicio==1:
             tela.blit(fundo,(0,0))
             tela.blit(caixa_fixa, (500,420))
             pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
             tela.blit(play,(30,50))
             tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
+            tela.blit(portal,(1000,520))
         #mostra gravidade
         if aa==5:
             if cont==5:
@@ -177,7 +179,7 @@ def cinco():
         portal=pygame.image.load(portais[cont]).convert_alpha()
         portal=pygame.transform.scale(portal,(200,200))
         
-        tela.blit(portal,(1000,520))
+        #tela.blit(portal,(1000,520))
         
         pygame.draw.line(fundo,(0,0,0),(100,670),(1200,670),2)
         pygame.draw.line(fundo,(0,0,0),(100,670),(100,0),2)
@@ -255,3 +257,4 @@ def cinco():
         
         pygame.display.update()
         clock.tick(60)
+#cinco()

@@ -197,9 +197,10 @@ def dez():
             pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
             tela.blit(play,(30,50))
             tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
+            tela.blit(fundinho,(0,0))
             tela.blit(lvl_10_img,(320,200))
             tela.blit(enter,[1000,600])
-            inicio=1
+            
         elif inicio==1:
             tela.blit(fundo,(0,0))
         
@@ -212,6 +213,7 @@ def dez():
             pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
             tela.blit(play,(30,50))
             tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
+            tela.blit(portal,(800,350))
         #mostra gravidade
         if aa==5:
             if cont==5:
@@ -223,7 +225,7 @@ def dez():
         portal=pygame.image.load(portais[cont]).convert_alpha()
         portal=pygame.transform.scale(portal,(200,200))
         
-        tela.blit(portal,(800,350))
+        #tela.blit(portal,(800,350))
         
         pygame.draw.line(fundo,(0,0,0),(100,670),(1200,670),2)
         pygame.draw.line(fundo,(0,0,0),(100,670),(100,0),2)
