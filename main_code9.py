@@ -65,6 +65,11 @@ def nove():
     myfont2 = pygame.font.SysFont("monospace", 60)
     label_win=pygame.image.load("ganhou.png")
     label_lose=pygame.image.load("perdeu.png")
+    inicio=0
+    lvl_9_img=pygame.image.load('lvl_9_img.png')
+    enter=pygame.image.load('enter_img.png')
+    enter=pygame.transform.scale(enter,(204,128))
+    fundinho=pygame.image.load('back_fundo.png')
 
 
     def simula(v,caixa,lugar):
@@ -164,15 +169,29 @@ def nove():
 
 
     while playing:
-        tela.blit(fundo,(0,0))
+        if inicio==0:
+            tela.blit(fundo,(0,0))
         
-        tela.blit(caixa_fixa, (850,120))
+            tela.blit(caixa_fixa, (850,120))
 
-        tela.blit(caixa_fixa2,(300,420))
+            tela.blit(caixa_fixa2,(300,420))
         
-        pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
-        tela.blit(play,(30,50))
-        tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
+            pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
+            tela.blit(play,(30,50))
+            tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
+            tela.blit(lvl_9_img,(320,200))
+            tela.blit(enter,[1000,600])
+            inicio=1
+        elif inicio==1:
+            tela.blit(fundo,(0,0))
+        
+            tela.blit(caixa_fixa, (850,120))
+
+            tela.blit(caixa_fixa2,(300,420))
+        
+            pygame.draw.line(fundo,(255,0,0),(100,667.5),(100+v*5*math.cos(ang),667.5-v*5*math.sin(ang)),2)
+            tela.blit(play,(30,50))
+            tela.blit(caixa_i,(caixa.x-50,caixa.y-52.5))
         #mostra gravidade
         if aa==5:
             if cont==5:
@@ -222,6 +241,8 @@ def nove():
             if event.type == pygame.KEYDOWN:
                 if event.key==K_g:
                     a=(a+1)%3
+                if inicio==0 and event.key==pygame.K_RETURN:
+                    inicio=1
                 if event.key==K_UP:
                     lugar.g=lugar.g+10
                 if event.key==K_DOWN:

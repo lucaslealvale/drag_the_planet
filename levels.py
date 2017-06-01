@@ -82,73 +82,73 @@ def fases():
 				if event.key==K_ESCAPE:
 					pygame.mixer.music.fadeout(2)
 					sys.exit()
-				elif xx==tutorial and event.key==K_UP:
+				elif xx==tutorial and event.key==K_UP and f==0:
 					xx=um
 					xx_xy=[760,400]
 					screen.blit(cima_2,xy_cima)
-				elif xx==um and event.key==K_UP:
+				elif xx==um and event.key==K_UP and f==0:
 					xx=dois
 					screen.blit(cima_2,xy_cima)
-				elif xx==dois and event.key==K_UP:
+				elif xx==dois and event.key==K_UP and f==0:
 					xx=tres
 					screen.blit(cima_2,xy_cima)
-				elif xx==tres and event.key==K_UP:
+				elif xx==tres and event.key==K_UP and f==0:
 					xx=quatro
 					screen.blit(cima_2,xy_cima)
-				elif xx==quatro and event.key==K_UP:
+				elif xx==quatro and event.key==K_UP and f==0:
 					xx=cinco
 					screen.blit(cima_2,xy_cima)
-				elif xx==cinco and event.key==K_UP:
+				elif xx==cinco and event.key==K_UP and f==0:
 					xx=seis
 					screen.blit(cima_2,xy_cima)
-				elif xx==seis and event.key==K_UP:
+				elif xx==seis and event.key==K_UP and f==0:
 					xx=sete 
 					screen.blit(cima_2,xy_cima)
-				elif xx==sete and event.key==K_UP:
+				elif xx==sete and event.key==K_UP and f==0:
 					xx=oito
 					screen.blit(cima_2,xy_cima)
-				elif xx==oito and event.key==K_UP:
+				elif xx==oito and event.key==K_UP and f==0:
 					xx=nove
 					screen.blit(cima_2,xy_cima)
-				elif xx==nove and event.key==K_UP:
+				elif xx==nove and event.key==K_UP and f==0:
 					xx=dez
 					screen.blit(cima_2,xy_cima)
-				elif xx==dez and event.key==K_UP:
+				elif xx==dez and event.key==K_UP and f==0:
 					xx=tutorial
 					xx_xy=[550,400]
 					screen.blit(cima_2,xy_cima)
-				elif xx==tutorial and event.key==K_DOWN:
+				elif xx==tutorial and event.key==K_DOWN and f==0:
 					xx=dez
 					xx_xy=[760,400]
 					screen.blit(baixo_2,xy_baixo)
-				elif xx==dez and event.key==K_DOWN:
+				elif xx==dez and event.key==K_DOWN and f==0:
 					xx=nove
 					screen.blit(baixo_2,xy_baixo)
-				elif xx==nove and event.key==K_DOWN:
+				elif xx==nove and event.key==K_DOWN and f==0:
 					xx=oito
 					screen.blit(baixo_2,xy_baixo)
-				elif xx==oito and event.key==K_DOWN:
+				elif xx==oito and event.key==K_DOWN and f==0:
 					xx=sete 
 					screen.blit(baixo_2,xy_baixo)
-				elif xx==sete and event.key==K_DOWN:
+				elif xx==sete and event.key==K_DOWN and f==0:
 					xx=seis
 					screen.blit(baixo_2,xy_baixo)
-				elif xx==seis and event.key==K_DOWN:
+				elif xx==seis and event.key==K_DOWN and f==0:
 					xx=cinco
 					screen.blit(baixo_2,xy_baixo)
-				elif xx==cinco and event.key==K_DOWN:
+				elif xx==cinco and event.key==K_DOWN and f==0:
 					xx=quatro 
 					screen.blit(baixo_2,xy_baixo)
-				elif xx==quatro and event.key==K_DOWN:
+				elif xx==quatro and event.key==K_DOWN and f==0:
 					xx=tres
 					screen.blit(baixo_2,xy_baixo)
-				elif xx==tres and event.key==K_DOWN:
+				elif xx==tres and event.key==K_DOWN and f==0:
 					xx=dois
 					screen.blit(baixo_2,xy_baixo)
-				elif xx==dois and event.key==K_DOWN:
+				elif xx==dois and event.key==K_DOWN and f==0:
 					xx=um
 					screen.blit(baixo_2,xy_baixo)
-				elif xx==um and event.key==K_DOWN:
+				elif xx==um and event.key==K_DOWN and f==0:
 					xx=tutorial
 					xx_xy=[550,400]
 					screen.blit(baixo_2,xy_baixo)
