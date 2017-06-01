@@ -23,6 +23,9 @@ def fases():
 	baixo_2=pygame.image.load('flechinha_baixo_2.png')
 	myfont=pygame.font.Font("8-BIT WONDER.ttf", 72)
 	level=myfont.render("level",1,(205,205,205))
+	tut=pygame.image.load('tut_img.jpg')
+	enter=pygame.image.load('enter_img.png')
+	enter=pygame.transform.scale(enter,(204,128))
 
 	tutorial=myfont.render('tutorial',1,(205,205,205))
 	um=myfont.render('1',1,(205,205,205))
@@ -36,6 +39,20 @@ def fases():
 	nove=myfont.render('9',1,(205,205,205))
 	dez=myfont.render('10',1,(205,205,205))
 
+	f=0
+
+	#class unit():
+    #def __init__(self):
+    #    self.last = pygame.time.get_ticks()
+    #    self.cooldown = 300    
+#
+    #def fire(self):
+    #    # fire gun, only if cooldown has been 0.3 seconds since last
+    #    now = pygame.time.get_ticks()
+    #    if now - self.last >= self.cooldown:
+    #        self.last = now
+    #        spawn_bullet()
+
 	xx=tutorial #marcador de número
 
 	xy_cima=[750,340] 
@@ -43,14 +60,17 @@ def fases():
 
 	xx_xy=[550,400]
 
+	fundao=0
+
 	while True:
-		screen.fill([0,0,0])
-		screen.blit(logo1,[0,0])
-		screen.blit(levels_name,[270,100])
-		screen.blit(cima_1,xy_cima)
-		screen.blit(baixo_1,xy_baixo)
-		screen.blit(level,[100,400])
-		screen.blit(xx,xx_xy)
+		if (fundao==0):
+			screen.fill([0,0,0])
+			screen.blit(logo1,[0,0])
+			screen.blit(levels_name,[270,100])
+			screen.blit(cima_1,xy_cima)
+			screen.blit(baixo_1,xy_baixo)
+			screen.blit(level,[100,400])
+			screen.blit(xx,xx_xy)
 
 
 		events=pygame.event.get()
@@ -133,22 +153,69 @@ def fases():
 				#	screen.blit(cima_2,xy_cima)
 				#elif event.key==K_DOWN:
 				#	screen.blit(baixo_2,xy_baixo)
-				elif xx==tutorial and event.key==pygame.K_RETURN:
+				elif f==0 and fundao==0 and xx==tutorial and event.key==pygame.K_RETURN:
+					f=1
+					fundao=1
+					screen.blit(tut,[0,0])
+					screen.blit(enter,[1000,600])
+				elif f==1 and fundao==1 and event.key==pygame.K_RETURN and xx==tutorial:
+					f=0
 					fase_tutorial.tutorial()
-				elif xx==um and event.key==pygame.K_RETURN:
+					fundao=0
+				elif f==0 and fundao==0 and xx==um and event.key==pygame.K_RETURN:
+					f=1
+					fundao=1
+					screen.blit(tut,[0,0])
+					screen.blit(enter,[1000,600])
+				elif f==1 and fundao==1 and xx==um and event.key==pygame.K_RETURN:
 					fase_1.um()
-				elif xx==dois and event.key==pygame.K_RETURN:
+				elif f==0 and fundao==0 and xx==dois and event.key==pygame.K_RETURN:
+					f=1
+					fundao=1
+					screen.blit(tut,[0,0])
+					screen.blit(enter,[1000,600])
+				elif f==1 and fundao==1 and xx==dois and event.key==pygame.K_RETURN:
 					fase_2.dois()
-				elif xx==tres and event.key==pygame.K_RETURN:
+				elif f==0 and fundao==0 and xx==tres and event.key==pygame.K_RETURN:
+					f=1
+					fundao=1
+					screen.blit(tut,[0,0])
+					screen.blit(enter,[1000,600])
+				elif f==1 and fundao==1 and xx==tres and event.key==pygame.K_RETURN:
 					fase_3.tres()
-				elif xx==quatro and event.key==pygame.K_RETURN:
+				elif f==0 and fundao==0 and xx==quatro and event.key==pygame.K_RETURN:
+					f=1
+					fundao=1
+					screen.blit(tut,[0,0])
+					screen.blit(enter,[1000,600])
+				elif f==1 and fundao==1 and xx==quatro and event.key==pygame.K_RETURN:
 					fase_4.quatro()
-				elif xx==cinco and event.key==pygame.K_RETURN:
+				elif f==0 and fundao==0 and xx==cinco and event.key==pygame.K_RETURN:
+					f=1
+					fundao=1
+					screen.blit(tut,[0,0])
+					screen.blit(enter,[1000,600])
+				elif f==1 and fundao==1 and xx==cinco and event.key==pygame.K_RETURN:
 					fase_5.cinco()
-				elif xx==seis and event.key==pygame.K_RETURN:
+				elif f==0 and fundao==0 and xx==seis and event.key==pygame.K_RETURN:
+					f=1
+					fundao=1
+					screen.blit(tut,[0,0])
+					screen.blit(enter,[1000,600])
+				elif f==1 and fundao==1 and xx==seis and event.key==pygame.K_RETURN:
 					fase_6.seis()
-				elif xx==sete and event.key==pygame.K_RETURN:
+				elif f==0 and fundao==0 and xx==sete and event.key==pygame.K_RETURN:
+					f=1
+					fundao=1
+					screen.blit(tut,[0,0])
+					screen.blit(enter,[1000,600])
+				elif f==1 and fundao==1 and xx==sete and event.key==pygame.K_RETURN:
 					fase_7.sete()
-				elif xx==oito and event.key==pygame.K_RETURN:
+				elif f==0 and fundao==0 and xx==oito and event.key==pygame.K_RETURN:
+					f=1
+					fundao=1
+					screen.blit(tut,[0,0])
+					screen.blit(enter,[1000,600])
+				elif f==1 and fundao==1 and xx==oito and event.key==pygame.K_RETURN:
 					fase_8.oito()
 		pygame.display.update()
