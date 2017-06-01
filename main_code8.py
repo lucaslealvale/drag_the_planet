@@ -42,7 +42,7 @@ def oito():
     caixa_i = pygame.image.load("caixa.png").convert_alpha()
 
     caixa_fixa = pygame.image.load("caixa2.png").convert_alpha()#1
-    caixa_fixa1 = obs(600, 620)#1
+    caixa_fixa1 = obs(600, 320)#1
 
 
     caixa_fixa2= pygame.image.load("caixa2.png").convert_alpha()#2
@@ -87,7 +87,7 @@ def oito():
             tela.blit(play,(1200,720))
             caixa.move(vx,vy)
             
-            tela.blit(caixa_fixa, (600,520))
+            tela.blit(caixa_fixa, (500,220))
             
             tela.blit(caixa_fixa2,(300,420))
             
@@ -164,7 +164,7 @@ def oito():
     while playing:
         tela.blit(fundo,(0,0))
         
-        tela.blit(caixa_fixa, (600,520))
+        tela.blit(caixa_fixa, (500,220))
 
         tela.blit(caixa_fixa2,(300,420))
         
@@ -258,3 +258,4 @@ def oito():
         
         pygame.display.update()
         clock.tick(60)
+o=oito()
