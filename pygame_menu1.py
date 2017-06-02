@@ -4,7 +4,7 @@ import levels as lvl
 import options as opt
 import HISTORIA as historinha
 
-def menu():
+def menu1():
 	pygame.init()
 	pygame.mixer.init()
 
@@ -128,4 +128,3 @@ def menu():
 					sys.exit()
 		d=d+1
 		pygame.display.update()
-menu()

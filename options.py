@@ -1,6 +1,7 @@
 import pygame, sys, time
 from pygame.locals import *
 import levels as lvl
+import HISTORIA as historinha
 
 def opcoes():
 	pygame.init()
@@ -280,7 +281,7 @@ def opcoes():
 					play=PLAYGAME_1
 					x_RICK=[310,310]
 				elif marker==3 and event.key==pygame.K_RETURN:
-					lvl.fases()
+					historinha.HISTORIONA()
 				elif marker==3 and y==on_1 and event.key==K_DOWN:
 					marker=1
 					y=on_2

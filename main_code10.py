@@ -5,6 +5,7 @@ import random, time
 import math
 import animation_out_world as ani
 #import pygame_menu as menuzinho
+import CREDITS as CREDITAOS
 
     
 def dez():
@@ -142,6 +143,7 @@ def dez():
             if r<=100:
                 #codigo se ganhou
                 tela.blit(label_win,(320,150))
+                CREDITAOS.creditos()
                 #menuzinho.menu()
                 
             for event in pygame.event.get():
