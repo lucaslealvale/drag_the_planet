@@ -8,7 +8,9 @@ import main_code2 as fase2
 
 
 def um():
+    #pygame.mixer.pre_init(44100, 16, 2, 4096)
     pygame.init()
+    pygame.mixer.init()
     tela = pygame.display.set_mode((1200,720))
     pygame.display.set_caption('Physics, Morty')
     clock = pygame.time.Clock()
@@ -69,6 +71,10 @@ def um():
     inicio=0
     enter=pygame.image.load('enter_img.png')
     enter=pygame.transform.scale(enter,(204,128))
+    meeseeks1=pygame.image.load('meeseeks2.png')
+    meeseeks2=pygame.image.load('meeseeks1.png')
+    diag_1=pygame.image.load('dialogo_meeseeks1.png')
+    #meeseeks_sound=pygame.mixer.Sound('himeeseeks.mp3')
 
     fundinho=pygame.image.load('back_fundo.png')
 
@@ -184,6 +190,15 @@ def um():
             tela.blit(fundinho,(0,0))
             tela.blit(lvl_1_img,(320,200))
             tela.blit(enter,[1000,600])
+            tela.blit(meeseeks1,[-15,400])
+            tela.blit(diag_1,[0,150])
+            #pygame.mixer.Sound.play(meeseeks_sound)
+            #time.sleep(3)
+            #pygame.mixer.Sound.stop()
+            #pygame.mixer.Sound.fadeout()
+
+
+
         elif inicio==1:
             tela.blit(fundo,(0,0))
         

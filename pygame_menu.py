@@ -47,10 +47,10 @@ def menu():
 	x_RICK=[350,305]
 
 	soundtrack_1="tema.mp3"
-	soundtrack_2="musica1.mp3"
+	soundtrack_2="SONIM.mp3"
 	soundtrack_3="musica2.mp3"
 	soundtrack_4="musica4.mp3"
-	soundtrack_5="musica5.mp3"
+	soundtrack_5="Sweet_Dreams.mp3"
 
 	pygame.mixer.music.load(soundtrack_1) #Música
 	pygame.mixer.music.play(-1)

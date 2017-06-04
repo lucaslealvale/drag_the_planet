@@ -64,6 +64,9 @@ def quatro():
     enter=pygame.image.load('enter_img.png')
     enter=pygame.transform.scale(enter,(204,128))
     fundinho=pygame.image.load('back_fundo.png')
+    meeseeks1=pygame.image.load('meeseeks2.png')
+    meeseeks2=pygame.image.load('meeseeks1.png')
+    diag_1=pygame.image.load('dialogo_meeseeks3.png')
 
 
     def simula(v,caixa,lugar):
@@ -159,6 +162,8 @@ def quatro():
             tela.blit(fundinho,(0,0))
             tela.blit(lvl_4_img,(320,200))
             tela.blit(enter,[1000,600])
+            tela.blit(meeseeks1,[-15,400])
+            tela.blit(diag_1,[0,150])
             
         elif inicio==1:
             tela.blit(fundo,(0,0))

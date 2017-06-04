@@ -58,6 +58,8 @@ def tutorial():
     myfont = pygame.font.SysFont("monospace", 30)
     myfont2 = pygame.font.SysFont("monospace", 60)
     label_win=pygame.image.load("ganhou.png")
+    meeseek1=pygame.image.load('meeseeks2.png')
+    meeseek2=pygame.image.load('meeseeks1.png')
     label_errou=pygame.image.load('errou.png')
 
 
